@@ -1,15 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+// App.js
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+
+import Home from "./pages/HomePage";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1 class="text-3xl font-bold underline text-red-400">Hello world!</h1>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="*" render={() => <h1>404 Not Found</h1>} />
+      </Switch>
     </>
   );
 }
