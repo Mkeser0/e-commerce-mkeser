@@ -5,7 +5,7 @@ import { FaInstagram } from "react-icons/fa6";
 
 function HeaderOne() {
   return (
-    <div className="flex justify-between items-center p-4 bg-[#252B42] font-montserrat">
+    <div className="hidden md:flex justify-between items-center p-4 bg-[#252B42]">
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1">
           <Phone size={16} color="#FFFFFF" />

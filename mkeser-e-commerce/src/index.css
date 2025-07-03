@@ -7,6 +7,10 @@
 *::after {
   box-sizing: border-box;
 }
+:root {
+  /* Set default font size for rem calculations */
+  font-family: "Montserrat", sans-serif;
+}
 
 /* Remove default margin and padding */
 body,

@@ -1,13 +1,12 @@
 import React from "react";
 import HeaderOne from "../components/HeaderOne";
-import MainCrousel from "../components/MainCrousel";
+import HeaderTwo from "../components/HeaderTwo";
 
 function HomePage() {
   return (
     <div>
       <HeaderOne />
-      <MainCrousel />
-      <p>Welcome to the homepage of our React app!</p>
+      <HeaderTwo />
     </div>
   );
 }
