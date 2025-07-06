@@ -8,7 +8,7 @@ function MainCard() {
       <div className="flex flex-col w-[388px] gap-[66px] md:gap-0 md:w-[1292px] md:flex-row bg-[#96E9FB] pt-[80px] md:pt-0 h-[904px] md:h-[622px] mx-0 md:mx-20 md:pl-30 justify-center items-center rounded-3xl max-w-screen-2xl">
         <div className="flex flex-col mb-20 md:mb-0 w-[388px] md:w-[548px] h-[316px] gap-[15px] md:gap-[30px]">
           <h5 className="text-[16px] font-bold text-[#2A7CC7] text-center md:text-left">
-            SUMMER 2020
+            SUMMER 2025
           </h5>
           <div className="flex flex-col md:flex-row gap-[10px] text-center md:text-left">
             <h1 className="text-[40px] md:text-[58px] font-bold text-[#252B42]">

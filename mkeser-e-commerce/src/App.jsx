@@ -3,14 +3,14 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./pages/HomePage";
-import Navbar from "./components/Navbar";
+import ShopPage from "./pages/ShopPage";
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/shop" exact component={ShopPage} />
         <Route path="*" render={() => <h1>404 Not Found</h1>} />
       </Switch>
     </>
