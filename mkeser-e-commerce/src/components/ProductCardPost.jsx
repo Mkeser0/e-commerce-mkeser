@@ -6,6 +6,9 @@ import { FaListUl } from "react-icons/fa";
 import { FaChartArea } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaStar } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa";
+import { PiShoppingCart } from "react-icons/pi";
+import { IoMdEye } from "react-icons/io";
 
 function ProductCardPost({
   imageUrl,
@@ -18,11 +21,29 @@ function ProductCardPost({
 }) {
   return (
     <div className="flex flex-col md:flex-row h-[606px] md:h-[404px] text-start items-center md:items-start justify-start ">
-      <img
-        className="w-[300px] md:w-[209px] h-[330px] md:h-[404px]"
-        src={imageUrl}
-        alt=""
-      />
+      <div className="relative">
+        <img
+          className="w-[300px] md:w-[209px] h-[330px] md:h-[404px]"
+          src={imageUrl}
+          alt=""
+        />
+        <div className="flex absolute top-[20px] left-[20px] w-[51px] h-[24px] bg-[#E74040] rounded-[3px] items-center justify-center">
+          <p className="block md:hidden text-[12px]">New</p>
+          <p className="hidden md:block text-[12px]">Sale</p>
+        </div>
+        <div className="hidden md:flex absolute top-[340px] left-[35px] gap-[10px]">
+          <div className="flex items-center justify-center rounded-full bg-[#FFFFFF] w-[40px] h-[40px]">
+            <FaRegHeart size={20} />
+          </div>
+          <div className="flex items-center justify-center rounded-full bg-[#FFFFFF] w-[40px] h-[40px]">
+            <PiShoppingCart size={20} />
+          </div>
+          <div className="flex items-center justify-center rounded-full bg-[#FFFFFF] w-[40px] h-[40px]">
+            <IoMdEye size={20} />
+          </div>
+        </div>
+      </div>
+
       <div className="flex flex-col gap-[10px] w-full md:w-[292px] h-[404px] pl-[25px] pt-[25px] pr-[25px] pb-[35px] bg-white">
         <div className="hidden md:flex justify-between">
           <Link>
@@ -50,7 +71,12 @@ function ProductCardPost({
             </Link>
           </div>
         </div>
-        <h5 className="text-[#252B42]">{head2}</h5>
+        <h5 className="hidden md:block text-[#252B42]">{head2}</h5>
+        <div className="flex md:hidden flex-col justify-start items-start text-[#252B42]">
+          <h4>Loudest à la Madison #1</h4>
+          <h4>(L'integral)</h4>
+        </div>
+
         <div className="flex flex-col text-[#737373] text-start items-start gap-0">
           <p className="text-[14px]">{text1}</p>
           <p className="text-[14px]">{text2}</p>

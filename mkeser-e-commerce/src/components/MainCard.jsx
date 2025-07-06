@@ -31,7 +31,7 @@ function MainCard() {
           </div>
         </div>
 
-        <div className="flex md:mr-[-150px] h-[619px] w-[388px] md:w-[697px]">
+        <div className="flex md:mr-[-150px] h-[620px] w-[388px] md:w-[697px]">
           <img src={resim} alt="" />
         </div>
       </div>

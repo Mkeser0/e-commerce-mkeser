@@ -7,6 +7,10 @@ import { FeaturedProducts } from "../components/FeaturedProducts";
 import ShopCards from "../components/ShopCards";
 import { Content } from "../components/Content";
 import FeaturedPosts from "../components/FeaturedPosts";
+import Logos from "../components/Logos";
+import FooterHome1 from "../components/FooterHome1";
+import FooterHome2 from "../components/FooterHome2";
+import FooterHome3 from "../components/FooterHome3";
 
 function HomePage() {
   return (
@@ -14,11 +18,15 @@ function HomePage() {
       <HeaderOne />
       <HeaderTwo />
       <MainCard />
+      <Logos />
       <ShopCards />
       <BestSeller />
       <Content />
-      <FeaturedPosts />
       <FeaturedProducts />
+      <FeaturedPosts />
+      <FooterHome1 />
+      <FooterHome2 />
+      <FooterHome3 />
     </div>
   );
 }

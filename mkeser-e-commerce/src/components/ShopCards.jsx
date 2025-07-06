@@ -19,7 +19,7 @@ export default function ShopCards() {
           text-white w-[345px]
           md:w-[420px] h-[238px] 
           pt-[5.5rem] pb-6 px-8
-          md:pt-[5rem] md:px-12 md:pb-4 md:left-0 md:bottom-0 md:top-auto gap-8
+          md:pt-[5rem] md:px-12 md:pb-4 md:left-0 bottom-0 md:top-auto gap-8
         "
         >
           <h2 className="text-xl font-bold leading-7 md:text-2xl md:leading-8">

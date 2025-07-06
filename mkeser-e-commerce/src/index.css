@@ -11,6 +11,9 @@
   /* Set default font size for rem calculations */
   font-family: "Montserrat", sans-serif;
 }
+body {
+  font-family: sans-serif;
+}
 
 /* Remove default margin and padding */
 body,
@@ -30,7 +33,6 @@ ol,
 pre,
 table,
 fieldset,
-input,
 textarea,
 button {
   margin: 0;
@@ -46,13 +48,11 @@ ol {
 /* Remove link underline and set color to inherit */
 a {
   text-decoration: none;
-  color: inherit;
 }
 
 /* Set base font and line height */
 body {
   line-height: 1.5;
-  font-family: sans-serif;
   background-color: #fff;
   color: #000;
 }
