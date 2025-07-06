@@ -3,6 +3,8 @@ import Header from "../layout/Header";
 import Logos from "../components/Logos";
 import Footer from "../layout/Footer";
 import ShopPageHeader from "../components/ShopPageHeader";
+import ShopPageCards from "../components/ShopPageCards";
+import ShopProductFilter from "../components/ShopProductFilter";
 
 function ShopPage() {
   return (
@@ -15,6 +17,8 @@ function ShopPage() {
         textt={"text-[14px]"}
       />
       <ShopPageHeader />
+      <ShopPageCards />
+      <ShopProductFilter />
       <Logos />
       <Footer />
     </div>
