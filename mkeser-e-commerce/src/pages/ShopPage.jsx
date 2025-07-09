@@ -5,6 +5,7 @@ import Footer from "../layout/Footer";
 import ShopPageHeader from "../components/ShopPageHeader";
 import ShopPageCards from "../components/ShopPageCards";
 import ShopProductFilter from "../components/ShopProductFilter";
+import { ShopBestSeller } from "../components/ShopBestSeller";
 
 function ShopPage() {
   return (
@@ -19,6 +20,7 @@ function ShopPage() {
       <ShopPageHeader />
       <ShopPageCards />
       <ShopProductFilter />
+      <ShopBestSeller />
       <Logos />
       <Footer />
     </div>

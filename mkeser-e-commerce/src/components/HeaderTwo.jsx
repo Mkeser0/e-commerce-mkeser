@@ -22,7 +22,9 @@ function HeaderTwo({ widthT, textt }) {
   return (
     <>
       <div className="flex justify-center">
-        <div className={`flex justify-between items-center py-4 ${widthT}`}>
+        <div
+          className={`flex justify-between items-center py-4 ${widthT} px-4`}
+        >
           <div className={`flex justify-between items-center gap-48 `}>
             <h3 className="text-[24px] text-[#252B42] font-bold">
               Mu|Ge Style

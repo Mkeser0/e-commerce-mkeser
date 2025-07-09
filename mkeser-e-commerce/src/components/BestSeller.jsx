@@ -1,39 +1,44 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import ProductCard from "./ProductCard";
+import { userContext } from "../context/SettingContext";
 
-export function BestSeller() {
+export function BestSeller({}) {
+  const { data } = useContext(userContext);
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleProducts = showAll ? data : data.slice(0, 10);
+
   return (
-    <div className="flex flex-col items-center justify-center py-20 min-h-screen gap-[24px] font-[montserrat] bg-white px-4">
-      <div className="flex flex-col items-center justify-center gap-[10px] mb-10">
-        <h4 className="text-gray-600">Featured Products</h4>
-        <h1 className="text-2xl font-bold text-center mb-4">
-          <span className="block md:inline">BESTSELLER</span>{" "}
-          <span className="block md:inline">PRODUCTS</span>
-        </h1>
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-[1035px] px-4 bg-white ">
+        <div className="flex flex-col text-center my-8 gap-3">
+          <h4 className="text-gray-600 text-sm">Featured Products</h4>
+          <h1 className="text-2xl font-bold my-2">BESTSELLER PRODUCTS</h1>
+          <p className="text-gray-500 text-sm">
+            Problems trying to resolve the conflict between
+          </p>
+        </div>
 
-        <p className="max-w-xl text-center  text-gray-600 mb-8">
-          <span className="block md:inline">
-            Problems trying to resolve the
-          </span>
-          <span className="block md:inline">conflict between</span>
-        </p>
+        <div className="grid grid-cols-5 gap-4">
+          {visibleProducts.map((product, i) => (
+            <ProductCard
+              key={i}
+              imgUrl={product.images[0]?.url}
+              productName={product.name}
+              price={product.price}
+              width="183px"
+              height="400px"
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => setShowAll((prev) => !prev)}
+          className="mt-10 px-8 py-3 border w-[256px] h-[52px] border-[#23A6F0] text-[#23A6F0] rounded-md hover:bg-[#23A6F0] hover:text-white transition"
+        >
+          {showAll ? "SHOW LESS PRODUCTS" : "LOAD MORE PRODUCTS"}
+        </button>
       </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <div
-            key={i}
-            className={`
-        ${i >= 5 ? "hidden lg:block" : ""}`}
-          >
-            <ProductCard />
-          </div>
-        ))}
-      </div>
-
-      <button className="bg-white text-[#23A6F0] font-semibold w-[256px] h-[52px] mt-10 text-sm px-[40px] py-[15px] border border-[#23A6F0] rounded-[5px] cursor-pointer hover:bg-[#23A6F0] hover:text-white transition-colors duration-300">
-        LOAD MORE PRODUCTS
-      </button>
     </div>
   );
 }
