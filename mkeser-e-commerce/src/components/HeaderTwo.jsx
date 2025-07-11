@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 function HeaderTwo({ widthT, textt }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isContact, setIsContact] = useState(false);
+  const [showShopMenu, setShowShopMenu] = useState(false); // 👈 eklendi
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -30,22 +31,65 @@ function HeaderTwo({ widthT, textt }) {
               Mu|Ge Style
             </h3>
             <div
-              className={`hidden md:flex items-center gap-[15px] ${textt} text-[#737373] font-bold`}
+              className={`hidden md:flex items-center gap-[15px] ${textt} text-[#737373] font-bold relative`}
             >
               <Link to="/">Home</Link>
-              <Link
-                to="/shop"
-                className="flex items-center  justify-center gap-1 font-normal"
-              >
-                Shop
-                <IoIosArrowDown color="#252B42" />
-              </Link>
+              <div className="flex items-center justify-center gap-1 font-normal relative">
+                <Link to="/shop">Shop</Link>
+                <IoIosArrowDown
+                  color="#252B42"
+                  className="cursor-pointer"
+                  onClick={() => setShowShopMenu((prev) => !prev)}
+                />
+
+                {/* ⬇️ SHOP ALT MENÜSÜ ⬇️ */}
+                {showShopMenu && (
+                  <div className="absolute flex flex-col md:flex-row gap-3 top-8 left-0 bg-white shadow-md p-4 w-[220px] z-50 rounded-md text-sm text-[#252B42]">
+                    <div className="mb-2 ">
+                      <p className="font-semibold mb-1">Kadın</p>
+                      <ul className="pl-2 space-y-1 ">
+                        <li>
+                          <Link to="/shop/kadin/elbise">Elbise</Link>
+                        </li>
+                        <li>
+                          <Link to="/shop/kadin/ayakkabi">Ayakkabı</Link>
+                        </li>
+                        <li>
+                          <Link to="/shop/kadin/canta">Çanta</Link>
+                        </li>
+                        <li>
+                          <Link to="/shop/kadin/aksesuar">Aksesuar</Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-1">Erkek</p>
+                      <ul className="pl-2 space-y-1">
+                        <li>
+                          <Link to="/shop/erkek/tshirt">Tişört</Link>
+                        </li>
+                        <li>
+                          <Link to="/shop/erkek/pantolon">Pantolon</Link>
+                        </li>
+                        <li>
+                          <Link to="/shop/erkek/ceket">Ceket</Link>
+                        </li>
+                        <li>
+                          <Link to="/shop/erkek/ayakkabi">Ayakkabı</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <Link to="/aboutus">About</Link>
               <Link to="/blog">Blog</Link>
               <Link to="/contact">Contact</Link>
               <Link to="/page">Page</Link>
             </div>
           </div>
+
           <div className="hidden md:flex items-center gap-4 text-[#23A6F0]">
             <div className={`flex items-center ${textt} gap-1 cursor-pointer`}>
               <IoPersonOutline />

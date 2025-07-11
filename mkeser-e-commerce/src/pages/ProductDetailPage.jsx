@@ -1,5 +1,8 @@
 import React from "react";
 import Header from "../layout/Header";
+import Logos from "../components/Logos";
+import Footer from "../layout/Footer";
+import ProductDescription from "../components/ProductDescription";
 
 function ProductDetailPage() {
   return (
@@ -11,6 +14,9 @@ function ProductDetailPage() {
         widthT={"w-[1042px]"}
         textt={"text-[14px]"}
       />
+      <ProductDescription />
+      <Logos />
+      <Footer />
     </div>
   );
 }

@@ -16,12 +16,13 @@ export function ShopBestSeller({}) {
   return (
     <div className="flex flex-col items-center justify-center py-16 bg-white">
       <div className="flex flex-col items-center justify-center w-[1048px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ">
           {visibleProducts.map((product, i) => (
             <ProductCard
+              title={product.title}
               id={product.id}
               key={i}
-              imgUrl={product.images[0]?.url}
+              imgUrl={product.image}
               productName={product.name}
               price={product.price}
               width="240px"

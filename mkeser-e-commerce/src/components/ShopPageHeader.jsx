@@ -8,7 +8,7 @@ function ShopPageHeader() {
       <div className="flex flex-col md:flex-row w-[1049px] items-center justify-between gap-[30px]">
         <h3 className="text-[24px] text-[#252B42] font-bold">Shop</h3>
         <div className="flex items-center gap-[15px]">
-          <Link>Home</Link>
+          <Link to="/">Home</Link>
           <IoIosArrowForward color="#BDBDBD" />
           <h6 className="text-[#BDBDBD] text-[14px]">Shop</h6>
         </div>
