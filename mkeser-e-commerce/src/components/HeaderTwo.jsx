@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function HeaderTwo({ widthT, textt }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isContact, setIsContact] = useState(false);
-  const [showShopMenu, setShowShopMenu] = useState(false); // 👈 eklendi
+  const [showShopMenu, setShowShopMenu] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -42,12 +42,11 @@ function HeaderTwo({ widthT, textt }) {
                   onClick={() => setShowShopMenu((prev) => !prev)}
                 />
 
-                {/* ⬇️ SHOP ALT MENÜSÜ ⬇️ */}
                 {showShopMenu && (
                   <div className="absolute flex flex-col md:flex-row gap-3 top-8 left-0 bg-white shadow-md p-4 w-[220px] z-50 rounded-md text-sm text-[#252B42]">
                     <div className="mb-2 ">
-                      <p className="font-semibold mb-1">Kadın</p>
-                      <ul className="pl-2 space-y-1 ">
+                      <p className="font-semibold mb-1 text-[#252B42]">Kadın</p>
+                      <ul className="pl-2 space-y-1 text-[#858585]">
                         <li>
                           <Link to="/shop/kadin/elbise">Elbise</Link>
                         </li>
@@ -63,8 +62,8 @@ function HeaderTwo({ widthT, textt }) {
                       </ul>
                     </div>
                     <div>
-                      <p className="font-semibold mb-1">Erkek</p>
-                      <ul className="pl-2 space-y-1">
+                      <p className="font-semibold mb-1 text-[#252B42]">Erkek</p>
+                      <ul className="pl-2 space-y-1 text-[#858585]">
                         <li>
                           <Link to="/shop/erkek/tshirt">Tişört</Link>
                         </li>

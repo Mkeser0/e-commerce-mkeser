@@ -11,7 +11,7 @@ function ProductDescription() {
   if (!product) return <div>Ürün bulunamadı</div>;
 
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="flex justify-center items-center h-[91px] gap-7 text-sm text-[#737373] ">
         <a href="">Description</a>
         <a href="">Additional Information</a>
