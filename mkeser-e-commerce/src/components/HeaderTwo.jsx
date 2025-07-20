@@ -6,11 +6,14 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function HeaderTwo({ widthT, textt }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isContact, setIsContact] = useState(false);
   const [showShopMenu, setShowShopMenu] = useState(false);
+
+  const history = useHistory();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -90,9 +93,21 @@ function HeaderTwo({ widthT, textt }) {
           </div>
 
           <div className="hidden md:flex items-center gap-4 text-[#23A6F0]">
-            <div className={`flex items-center ${textt} gap-1 cursor-pointer`}>
+            <div className={`flex items-center ${textt} gap-1`}>
               <IoPersonOutline />
-              <p>Login / Register</p>
+              <button
+                onClick={() => history.push("/signin")}
+                className="cursor-pointer"
+              >
+                Login
+              </button>
+              <p>/</p>
+              <button
+                onClick={() => history.push("/signup")}
+                className="cursor-pointer"
+              >
+                Register
+              </button>
             </div>
             <IoSearch size={16} />
             <PiShoppingCart />

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../layout/Header";
+import HeaderShop from "../layout/HeaderShop";
 import Logos from "../components/Logos";
 import Footer from "../layout/Footer";
 import ShopPageHeader from "../components/ShopPageHeader";
@@ -10,7 +10,7 @@ import { ShopBestSeller } from "../components/ShopBestSeller";
 function ShopPage() {
   return (
     <div>
-      <Header
+      <HeaderShop
         bgColor={"bg-[#23856D]"}
         widthO={"w-[1042px]"}
         textO={"text-[12px]"}
