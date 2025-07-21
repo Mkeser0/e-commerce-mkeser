@@ -1,28 +1,34 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { userContext } from "../context/SettingContext";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../redux/thunks/productThunks";
+import { setLimit, setOffset } from "../redux/actions/productAction";
 
-export function ShopBestSeller({}) {
-  const { data } = useContext(userContext);
+export function ShopBestSeller() {
+  const dispatch = useDispatch();
   const [activePage, setActivePage] = useState(1);
 
   const itemsPerPage = 12;
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const offset = (activePage - 1) * itemsPerPage;
 
-  const startIndex = (activePage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const visibleProducts = data.slice(startIndex, endIndex);
+  const { productList, total } = useSelector((state) => state.product);
+
+  useEffect(() => {
+    dispatch(setLimit(itemsPerPage));
+    dispatch(setOffset(offset));
+    dispatch(fetchProducts());
+  }, [dispatch, activePage]);
 
   return (
     <div className="flex flex-col items-center justify-center py-16 bg-white">
       <div className="flex flex-col items-center justify-center w-[1048px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ">
-          {visibleProducts.map((product, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+          {productList.map((product) => (
             <ProductCard
-              title={product.title}
+              title={product.name}
               id={product.id}
-              key={i}
-              imgUrl={product.image}
+              key={product.id}
+              imgUrl={product.images[0]?.url}
               productName={product.name}
               price={product.price}
               width="240px"
@@ -55,9 +61,7 @@ export function ShopBestSeller({}) {
 
           <button
             className="h-[74px] w-[83px] flex items-center justify-center"
-            onClick={() =>
-              setActivePage((prev) => Math.min(prev + 1, totalPages))
-            }
+            onClick={() => setActivePage((prev) => prev + 1)}
           >
             Next
           </button>
