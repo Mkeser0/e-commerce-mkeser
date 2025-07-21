@@ -11,7 +11,7 @@ export function ShopBestSeller() {
   const itemsPerPage = 12;
   const offset = (activePage - 1) * itemsPerPage;
 
-  const { productList, total } = useSelector((state) => state.product);
+  const { productList } = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(setLimit(itemsPerPage));

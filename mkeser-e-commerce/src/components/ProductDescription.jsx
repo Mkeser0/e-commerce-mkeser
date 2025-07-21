@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
-import { userContext } from "../context/SettingContext";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useSelector } from "react-redux";
 
 function ProductDescription() {
-  const { data } = useContext(userContext);
+  const { productList } = useSelector((state) => state.product);
+
   const { id } = useParams();
-  const product = data.find((p) => p.id === parseInt(id));
+  const product = productList.find((p) => p.id === parseInt(id));
 
   if (!product) return <div>Ürün bulunamadı</div>;
 
@@ -21,7 +22,7 @@ function ProductDescription() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-7.5">
           <div className="w-[332px] h-[392px] ">
             <img
-              src={product.image}
+              src={product.images[0]?.url}
               alt={product.name}
               className="w-[332px] h-[292px] md:h-[392px]"
             />
@@ -42,42 +43,42 @@ function ProductDescription() {
             </p>
           </div>
           <div className="flex flex-col justify-center items-center w-[332px] h-[427px] gap-7.5">
-            <h3 className="text-xl text-[#252B42] ">{product.title}</h3>
+            <h3 className="text-xl text-[#252B42] ">{product.name}</h3>
             <div className="flex flex-col justify-center items-center gap-2.5">
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
             </div>
             <h3 className="text-xl text-[#252B42] ">{product.title}</h3>
             <div className="flex flex-col justify-center items-center gap-2.5">
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
               <div className="flex flex-row justify-center items-center ">
                 <MdOutlineKeyboardArrowRight />
-                <p className="text-sm text-[#737373] ">{product.category}</p>
+                <p className="text-sm text-[#737373] ">{product.name}</p>
               </div>
             </div>
           </div>

@@ -18,10 +18,10 @@ function ProductCard({ imgUrl, price, productName, className, id, title }) {
         className="w-[299px] md:w-[183px] h-[360px] md:h-[238px] "
       />
       <div className="flex flex-col items-center justify-center pb-[35px] px-[25px] pt-[25px] gap-[10px]">
-        <h3 className="text-[16px] font-bold mt-4 text-center text-[#252B42]">
+        <h3 className="text-sm font-bold mt-4 text-center text-[#252B42]">
           {productName}
         </h3>
-        <p className="text-[#737373]  font-bold mb-2 text-sm text-center">
+        <p className="text-[#737373]  font-bold mb-2 text-[12px] text-center">
           {title}
         </p>
         <p className="text-[#BDBDBD] font-bold text-xs mb-4 text-center">

@@ -17,7 +17,7 @@ export function BestSeller() {
   }, [dispatch]);
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 25);
+    setVisibleCount((prev) => prev + 20);
   };
 
   return (
@@ -31,17 +31,17 @@ export function BestSeller() {
           </p>
         </div>
 
-        {/* Mobil görünüm (sm:hidden) */}
         <div className="grid grid-cols-1 sm:hidden gap-4">
           {productList
             .slice(0, Math.min(5 + visibleCount - 10, productList.length))
             .map((product, i) => (
               <ProductCard
-                key={i}
+                id={product.id}
                 title={product.name}
                 imgUrl={product.images[0]?.url}
                 productName={product.name}
                 price={product.price}
+                key={i}
                 className="w-full min-h-[400px]"
               />
             ))}
@@ -51,6 +51,7 @@ export function BestSeller() {
         <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {productList.slice(0, visibleCount).map((product, i) => (
             <ProductCard
+              id={product.id}
               key={i}
               title={product.name}
               imgUrl={product.images[0]?.url}
