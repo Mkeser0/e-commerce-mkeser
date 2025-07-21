@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const initialForm = {
   name: "",
@@ -8,8 +10,14 @@ const initialForm = {
 };
 
 function SignUpPage() {
+  const [_, setUser] = useLocalStorage("user", null);
+  const history = useHistory();
+
   const handleFormSubmit = (formData) => {
-    console.log("Form: ", formData);
+    const { confirmPassword, ...userData } = formData;
+    setUser(userData); // localStorage’a yaz
+    alert("Kayıt başarılı!");
+    history.push("/SignIn");
   };
 
   const {
@@ -140,7 +148,7 @@ function SignUpPage() {
                         validate: (value) =>
                           value === password || "Şifreler uyuşmuyor",
                       })}
-                      type="confirmPassword"
+                      type="password"
                       id="confirmPassword"
                       placeholder="••••••••"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -155,12 +163,17 @@ function SignUpPage() {
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
                       <input
-                        id="terms"
-                        aria-describedby="terms"
                         type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        required=""
+                        id="terms"
+                        {...register("terms", {
+                          required: "Şartları kabul etmelisiniz",
+                        })}
                       />
+                      {errors.terms && (
+                        <p className="text-red-500 text-sm">
+                          {errors.terms.message}
+                        </p>
+                      )}
                     </div>
                     <div className="ml-3 text-sm">
                       <label
