@@ -5,6 +5,8 @@ import Footer from "../layout/Footer";
 import ProductDescription from "../components/ProductDescription";
 import ProductDetailHeader from "../components/ProductDetailHeader";
 import ProductDetail from "../components/ProductDetail";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProductDetailPage() {
   return (
@@ -21,6 +23,7 @@ function ProductDetailPage() {
       <ProductDescription />
       <Logos />
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

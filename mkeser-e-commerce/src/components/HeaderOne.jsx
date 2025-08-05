@@ -7,7 +7,7 @@ function HeaderOne({ bgColor, widthO, textO }) {
   return (
     <div className={`${bgColor} flex justify-center ${textO}`}>
       <div
-        className={`hidden md:flex justify-between ${widthO}  h-[58px] items-center px-4`}
+        className={`hidden md:flex justify-between ${widthO}  h-[58px] items-center px-4 md:px-0`}
       >
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1">

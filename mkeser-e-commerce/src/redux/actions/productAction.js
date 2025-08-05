@@ -8,6 +8,7 @@ export const SET_OFFSET = "SET_OFFSET";
 export const SET_FILTER = "SET_FILTER";
 export const SET_SORT_BY = "SET_SORT_BY";
 export const SET_FETCH_STATE = "SET_FETCH_STATE";
+export const SET_SELECTED_CATEGORY = "SET_SELECTED_CATEGORY";
 
 export const setCategories = (categories) => ({ type: SET_CATEGORIES, payload: categories });
 export const setProductList = (products) => ({ type: SET_PRODUCT_LIST, payload: products });
@@ -19,3 +20,7 @@ export const setOffset = (offset) => ({ type: SET_OFFSET, payload: offset });
 export const setFilter = (filter) => ({ type: SET_FILTER, payload: filter });
 export const setSortBy = (sortKey) => ({ type: SET_SORT_BY, payload: sortKey });
 export const setFetchState = (state) => ({ type: SET_FETCH_STATE, payload: state });
+export const setSelectedCategory = (payload) => ({
+  type: SET_SELECTED_CATEGORY,
+  payload, // { gender, categoryName, categoryId }
+});

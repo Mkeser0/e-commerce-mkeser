@@ -1,29 +1,36 @@
-// ==========================
-// 2. redux/reducers/authReducer.js
-// ==========================
-
-// ► Amaç: auth state'ini yöneten reducer fonksiyonu. Gelen action'lara göre state güncellenir.
-
 import {
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
   SIGN_UP_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT,
 } from '../actions/authAction';
 
 const initialState = {
-  user: null,
-  loading: false,
-  error: null,
+  user: null,           // Giriş yapan kullanıcı bilgisi
+  loading: false,       // API çağrıları sırasında yüklenme durumu
+  error: null,          // Hatalar burada tutulur
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_UP_REQUEST:
+    case LOGIN_REQUEST:
       return { ...state, loading: true, error: null };
+
     case SIGN_UP_SUCCESS:
-      return { ...state, loading: false, user: action.payload };
+    case LOGIN_SUCCESS:
+      return { ...state, loading: false, user: action.payload, error: null };
+
     case SIGN_UP_FAILURE:
+    case LOGIN_FAILURE:
       return { ...state, loading: false, error: action.payload };
+
+    case LOGOUT:
+      return { ...initialState };
+
     default:
       return state;
   }

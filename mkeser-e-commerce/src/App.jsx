@@ -1,7 +1,6 @@
 // App.js
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
 import Home from "./pages/HomePage";
 import ShopPage from "./pages/ShopPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -10,13 +9,20 @@ import PersonnelPage from "./pages/PersonnelPage";
 import AboutUs from "./pages/AboutUs";
 import SignUpPage from "./pages/SignUpPage";
 import SignIn from "./pages/SignIn";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/shop" exact component={ShopPage} />
+        <Route
+          path="/shop/:gender/:categoryName/:categoryId?"
+          exact
+          component={ShopPage}
+        />
         <Route path="/product/:id" exact component={ProductDetailPage} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/team" exact component={PersonnelPage} />

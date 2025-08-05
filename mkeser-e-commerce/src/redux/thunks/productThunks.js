@@ -5,12 +5,25 @@ import {
   setFetchState,
 } from "../actions/productAction";
 
-export const fetchProducts = () => async (dispatch, getState) => {
+// Thunk fonksiyonu: parametrelerle ürünleri getir
+export const fetchProducts = (params = {}) => async (dispatch, getState) => {
   dispatch(setFetchState("FETCHING"));
+
+  // State'ten limit ve offset al
   const { limit, offset } = getState().product;
 
+  // Varsayılan parametreleri ekle
+  const queryParams = {
+    limit,
+    offset,
+    ...params, // gelen parametreleri üzerine yaz
+  };
+
+  // URLSearchParams ile URL formatına çevir
+  const queryString = new URLSearchParams(queryParams).toString();
+
   try {
-    const res = await axiosInstance.get(`/products?limit=${limit}&offset=${offset}`);
+    const res = await axiosInstance.get(`/products?${queryString}`);
     dispatch(setProductList(res.data.products));
     dispatch(setTotal(res.data.total));
     dispatch(setFetchState("FETCHED"));

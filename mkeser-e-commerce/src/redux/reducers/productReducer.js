@@ -9,7 +9,7 @@ import {
   SET_OFFSET,
   SET_FILTER,
   SET_SORT_BY,
-  SET_FETCH_STATE,
+  SET_FETCH_STATE, SET_SELECTED_CATEGORY
 } from "../actions/productAction";
 
 const initialState = {
@@ -23,6 +23,7 @@ const initialState = {
   filter: "",
   sortBy: "",
   fetchState: "NOT_FETCHED",
+  selectedCategory: null,
 };
 
 const productReducer = (state = initialState, action) => {
@@ -47,6 +48,8 @@ const productReducer = (state = initialState, action) => {
       return { ...state, sortBy: action.payload };
     case SET_FETCH_STATE:
       return { ...state, fetchState: action.payload };
+    case SET_SELECTED_CATEGORY:
+      return { ...state, selectedCategory: action.payload };
     default:
       return state;
   }

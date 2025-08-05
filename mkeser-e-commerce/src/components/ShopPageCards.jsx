@@ -1,37 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ShopProductCard from "./ShopProductCard";
-import resimUrl from "../assets/col-md-4.png";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../redux/thunks/categoryThunks";
 
 function ShopPageCards() {
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.product.categories) || [];
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
   return (
-    <div>
-      <div className="flex items-center justify-center mt-10">
-        <div className="flex flex-col md:flex-row flex-wrap items-center justify-center w-[1088px] gap-[15px] mt-10">
-          <ShopProductCard
-            resimUrl={resimUrl}
-            head={"CLOTHS"}
-            text={"5 Items"}
-          />
-          <ShopProductCard
-            resimUrl={resimUrl}
-            head={"CLOTHS"}
-            text={"5 Items"}
-          />
-          <ShopProductCard
-            resimUrl={resimUrl}
-            head={"CLOTHS"}
-            text={"5 Items"}
-          />
-          <ShopProductCard
-            resimUrl={resimUrl}
-            head={"CLOTHS"}
-            text={"5 Items"}
-          />
-          <ShopProductCard
-            resimUrl={resimUrl}
-            head={"CLOTHS"}
-            text={"5 Items"}
-          />
+    <div className="flex justify-center mt-10">
+      <div className="w-[1088px] overflow-x-auto">
+        <div className="flex w-max gap-4">
+          {categories.length > 0 ? (
+            categories.map((cat) => (
+              <ShopProductCard
+                key={cat.id}
+                resimUrl={cat.img}
+                head={cat.title}
+                text={cat.gender === "k" ? "Kadın" : "Erkek"}
+              />
+            ))
+          ) : (
+            <p className="text-center">Kategoriler yükleniyor...</p>
+          )}
         </div>
       </div>
     </div>
