@@ -8,7 +8,7 @@ import {
   SET_ADDRESS_LIST,
   SET_CREDIT_CARDS,
   RESET_CLIENT_STATE,
-} from "../actions/ClientAction";
+} from "../actions/clientAction";
 
 const initialState = {
   user: null,
