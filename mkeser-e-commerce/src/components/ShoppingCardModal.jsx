@@ -13,7 +13,7 @@ function ShoppingCardModal({ onClose }) {
       <h2 className="text-lg font-bold mb-4">Sepetiniz</h2>
 
       {cartItems.length === 0 ? (
-        <p>Sepet boş</p>
+        <p className="text-sm text-red-400">Sepet boş</p>
       ) : (
         cartItems.map((item) => (
           <ShoppingCart

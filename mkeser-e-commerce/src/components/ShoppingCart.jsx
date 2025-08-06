@@ -10,9 +10,9 @@ function ShoppingCart({ imgUrl, item, price, productName }) {
           className="w-16 h-16 object-cover"
         />
         <div>
-          <p className="font-semibold">{productName}</p>
-          <p>Adet: {item}</p>
-          <p className="text-sm text-gray-600">{price} TL</p>
+          <p className="font-semibold text-sm">{productName}</p>
+          <p className="text-sm text-gray-400">Adet: {item}</p>
+          <p className="text-sm text-red-400">{price} TL</p>
         </div>
       </div>
     </div>
