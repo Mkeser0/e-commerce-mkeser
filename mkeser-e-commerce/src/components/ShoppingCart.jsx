@@ -27,14 +27,14 @@ function ShoppingCart({ imgUrl, item, price, productName, productId }) {
           <div className="flex items-center gap-2 mt-2">
             <button
               onClick={handleDecrease}
-              className="px-4 py-1 bg-gray-200 rounded hover:bg-gray-300"
+              className="w-4 py-1 bg-gray-200 rounded hover:bg-gray-300"
             >
               -
             </button>
             <span className="text-sm">{item}</span>
             <button
               onClick={handleIncrease}
-              className="px-4 py-1 bg-gray-200 rounded hover:bg-gray-300"
+              className="w-4 py-1 bg-gray-200 rounded hover:bg-gray-300"
             >
               +
             </button>
